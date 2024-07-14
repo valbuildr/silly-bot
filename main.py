@@ -36,10 +36,7 @@ async def bleh(interaction: discord.Interaction):
 @appcmds.allowed_installs(guilds=True, users=True)
 @appcmds.allowed_contexts(guilds=True, dms=True, private_channels=True)
 async def about(interaction: discord.Interaction):
-    e = discord.Embed()
-    e.colour = discord.Colour.blurple()
-    e.title("about silly bot")
-    e.description("just a silly little bot :3")
+    e = discord.Embed(title="about silly bot", description="just a silly little bot :3", colour=discord.Colour.blurple())
     await interaction.response.send_message(embed=e, ephemeral=True)
 
 bot.run(config["TOKEN"])

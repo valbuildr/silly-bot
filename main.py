@@ -31,4 +31,15 @@ async def bleh(interaction: discord.Interaction):
     await interaction.response.defer()
     await interaction.followup.send(file=discord.File("sillycat.png"))
 
+@bot.tree.command(name="about", description="about this very silly bot!!")
+@appcmds.user_install()
+@appcmds.allowed_installs(guilds=True, users=True)
+@appcmds.allowed_contexts(guilds=True, dms=True, private_channels=True)
+async def about(interaction: discord.Interaction):
+    e = discord.Embed()
+    e.colour = discord.Colour.blurple()
+    e.title("about silly bot")
+    e.description("just a silly little bot :3")
+    await interaction.response.send_message(embed=e, ephemeral=True)
+
 bot.run(config["TOKEN"])
